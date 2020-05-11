@@ -1,0 +1,39 @@
+<html>
+    <body>
+        {% include "superior/barra.html" %}
+        <h1 style="color: red;">Hola a todos</h1>
+
+        {# NO TEMAS DISEÑADOR! INGNORA ESTA PARTE #}
+
+        {% comment %}
+            esto es un comentario
+            de variarias lineas
+        {% endcomment %}
+
+
+
+        {%if nombre_persona == 'Mathieu'%}
+            <p>El curso lo importe el profesor titular</p>
+        {% else %}
+            <p>El curso lo importe el profesor suplente</p>
+        {% endif %}
+
+        <p>El nombre del programador es: {{nombre_persona.upper}} y su apellido es {{apellido_persona.upper}}</p>
+        <p>Estamos viendo el tema de las plantillas a d&iacute;a {{fecha.day}}/{{fecha.month}}/{{fecha.year}}</p> 
+        <p>{{temas}}</p>
+        <p>{{temas.1}}</p>  
+        
+        <p><strong>Temas del curso: </strong></p>
+        <p>
+            <ul>
+                {% if temas %}
+                    {% for tema in temas %}
+                        <li>{{tema|first|lower}}</li>
+                    {% endfor %}
+                {% else %}
+                    <p>No hay elementos que mostrar</p>
+                {% endif %}
+            </ul>    
+        </p>
+    </body>
+</html>
